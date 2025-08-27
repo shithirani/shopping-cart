@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopping Cart</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <style>
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+
+  <header class="bg-blue-500 shadow p-4 flex justify-between items-center text-white">
+    <h1 class="text-2xl font-bold">MYSTORE.COM</h1>
+    <button id="view-cart" class="relative flex items-center space-x-2 transition hover:text-blue-200">
+      <i class="fa-solid fa-cart-shopping text-xl"></i>
+      <span>Cart</span>
+      <span id="cart-count" class="absolute -top-2 -right-3 bg-red-500 text-white text-xs rounded-full px-2">0</span>
+    </button>
+  </header>
+
+  <main class="p-6">
+    <h2 class="text-xl font-semibold mb-4"> Our Products </h2>
+    <div id="product-list" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Products injected by products.js -->
+    </div>
+  </main>
+
+  <!-- Mini Cart Notification -->
+  <div id="mini-cart" class="fixed bottom-5 right-5 bg-white shadow-lg rounded p-4 w-80 hidden transition-all duration-300 transform translate-y-10 opacity-0 z-50">
+    <div id="mini-cart-content"></div>
+    <button id="mini-cart-close" class="absolute top-2 right-2 text-gray-500 hover:text-gray-800">&times;</button>
+  </div>
+
+  <!-- Cart Modal -->
+  <div id="cart-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div class="bg-white w-96 p-6 rounded shadow-lg relative">
+      <!-- Close button -->
+      <button id="close-cart" class="absolute top-2 right-3 text-2xl">&times;</button>
+
+      <h2 class="text-lg font-bold mb-4">Your Cart</h2>
+      <div id="cart-items" class="space-y-2"></div>
+      <p class="mt-4 font-semibold">Total: $<span id="cart-total">0.00</span></p>
+      <div class="mt-4 flex justify-between">
+        <button id="clear-cart" class="bg-red-500 text-white px-4 py-2 rounded">Clear Cart</button>
+        <button id="checkout" class="bg-green-500 text-white px-4 py-2 rounded">Checkout</button>
+      </div>
+    </div>
+  </div>
+<!-- Footer -->
+<footer class="bg-blue-500 text-white mt-10 p-6">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
+    <!-- Footer text -->
+    <p class="text-center md:text-left">&copy; 2025 MYSTORE.COM. All rights reserved.</p>
+    <!-- Social icons -->
+    <div class="flex space-x-4 mt-4 md:mt-0">
+      <a href="https://www.facebook.com/user.available.773/" class="hover:text-blue-200"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.linkedin.com/in/bishwojit-saha-076370231/" class="hover:text-blue-200"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#" class="hover:text-blue-200"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+</footer>
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/ui.js"></script>
+</body>
+</html>
